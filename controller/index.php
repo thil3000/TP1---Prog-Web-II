@@ -1,3 +1,8 @@
+<!-- Page:aceuil.php 
+	 Auteur: Thierry Légaré
+	 Date:Février 2019
+-->
+
 <?php 
 	include '../modeles/auto.php';
 	include '../vues/acceuil.php';

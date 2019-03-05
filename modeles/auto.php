@@ -62,6 +62,7 @@
 		asort($tab_maker);
 		return $tab_maker;
 	}
+	
 	function getModelList($make){
 		$tab_cars = getCarList();
 		$tab_model = array();
@@ -75,10 +76,30 @@
 		asort($tab_model);
 		return $tab_model;
 	}
+	
+	function getMakeFromModel($model){
+		$make= null;
+		if(validateModel($model)){
+			//À compléter
+		}
+		return $make;
+	}
+	
+	function validateMake($make){
+		if (strpos($make, '%20')){
+			str_replace('%20', ' ', $make);
+		}
+		//À compléter for each + element.contains()?
+		return true;
+	}
 
-	function validateMake(){}
-
-	function validateModel(){}
+	function validateModel($model){
+		if (strpos($model, '%20')){
+			str_replace('%20', ' ', $model);
+		}
+		//À compléter for each + element.contains()?
+		return true;
+	}
 	
 
 ?>

@@ -4,7 +4,7 @@
 -->
 <?php 
 	include '../modeles/auto.php';
-	include '../index.php';
+//	include '../index.php';
 ?>
 <html>
 	<head>
@@ -62,17 +62,10 @@
 				<img src=".." alt="logo">
 			</div>
 			<div>
-				<div class="dropdown">
-					<button class="dropbtn">Make</button>
-					<div class="dropdown-content">
-						<?php 
-							generateDropdownList();
-						?>
-					</div>
-				</div>
+				<?php 
+					generateDropdownList();
+				?>
 			</div>
-			
 		</div>
-		
 	</body>
 </html>

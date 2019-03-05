@@ -4,5 +4,17 @@
 -->
 
 <?php
+include '../modeles/auto.php';
 
+function getCarSearchResult($make,$model){
+	echo $make . "<br>\n" . "%20" . $model;
+	return true;	
+}
+
+$make = isset($_GET["make"])?$_GET["make"]:'';
+$model = isset($_GET["model"])?$_GET["model"]:'';
+if ($make != '' && $model != ''){
+	//if(validateMake($make && validateModel($model)))
+	getCarSearchResult($make,$model);
+}
 ?>

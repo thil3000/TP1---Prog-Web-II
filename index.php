@@ -4,12 +4,12 @@
 -->
 
 <?php 
-	include 'modeles/auto.php';
-	include 'controller/selectionController';
-?>
 
-<?php
-	function generateMakeList($chosenMake) {
+	include 'modeles/auto.php';
+	include 'vues/acceuil.php';
+
+	
+	function generateMakeList($chosenMake){
 		$tab_maker = getMakeList();
 		echo "<div class=\"dropdown\">\n";
 		echo "<button class=\"dropbtn\">$chosenMake</button>\n";
@@ -52,6 +52,4 @@
 			}
 		}
 	}
-	
-	require 'vues/acceuil.php';
 ?>

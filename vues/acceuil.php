@@ -2,10 +2,6 @@
 	 Auteur: Thierry Légaré , Vincent Boies
 	 Date:Février 2019
 -->
-<?php 
-	include '../modeles/auto.php';
-//	include '../index.php';
-?>
 <html>
 	<head>
 		<meta charset="UTF-8">

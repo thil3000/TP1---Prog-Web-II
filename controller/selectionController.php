@@ -7,7 +7,7 @@
 include '../modeles/auto.php';
 
 function getCarSearchResult($make,$model){
-	echo $make . "<br>\n" . "%20" . $model;
+	echo $make . "<br>\n" . $model;
 	return true;	
 }
 

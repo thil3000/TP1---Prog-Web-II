@@ -1,13 +1,11 @@
-<!-- Page:aceuil.php 
+<!-- Page:index.php 
 	 Auteur: Thierry Légaré , Vincent Boies
 	 Date:Février 2019
 -->
 
 <?php 
 
-	include 'modeles/auto.php';
-	include 'vues/acceuil.php';
-
+	require 'modeles/auto.php';
 	
 	function generateMakeList($chosenMake){
 		$tab_maker = getMakeList();
@@ -52,4 +50,6 @@
 			}
 		}
 	}
+	
+	require 'vues/acceuil.php';
 ?>

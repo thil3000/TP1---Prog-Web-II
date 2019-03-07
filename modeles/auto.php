@@ -1,4 +1,4 @@
-<!-- Page:aceuil.php 
+<!-- Page:auto.php 
 	 Auteur: Thierry Légaré , Vincent Boies
 	 Date:Février 2019
 -->
@@ -28,7 +28,8 @@
 			array("Make" => "Jeep","Model" => "Grand Cherokee","Price" => "21000","Year" => "2012","Color" => "Bleu","KM" => "35000"),
 			array("Make" => "Pontiac","Model" => "Vibe","Price" => "3500","Year" => "2005","Color" => "Orange","KM" => "500000"),
 			array("Make" => "Pontiac","Model" => "Vibe","Price" => "3500","Year" => "2005","Color" => "Orange","KM" => "500000"),
-			array("Make" => "Pontiac","Model" => "G5","Price" => "4000","Year" => "2005","Color" => "Orange","KM" => "100000"),			array("Make" => "Hyundai","Model" => "Sonata","Price" => "5000","Year" => "2009","Color" => "Noir","KM" => "100000"),
+			array("Make" => "Pontiac","Model" => "G5","Price" => "4000","Year" => "2005","Color" => "Orange","KM" => "100000"),			
+			array("Make" => "Hyundai","Model" => "Sonata","Price" => "5000","Year" => "2009","Color" => "Noir","KM" => "100000"),
 			array("Make" => "Ford","Model" => "F750 Super-Duty Lariat Platium","Price" => "1000000","Year" => "2019","Color" => "Bleu","KM" => "0"),
 			array("Make" => "Nissan","Model" => "350Z","Price" => "14500","Year" => "2008","Color" => "Blanc","KM" => "49000"),
 			array("Make" => "Nissan","Model" => "370Z","Price" => "24500","Year" => "2017","Color" => "Blanc","KM" => "9000"),
@@ -47,39 +48,43 @@
 			array("Make" => "Ford","Model" => "Explorer","Price" => "32722","Year" => "2016","Color" => "Bleu","KM" => "5000"),
 			array("Make" => "Ford","Model" => "Escape","Price" => "15000","Year" => "2015","Color" => "Gris","KM" => "70000"),
 			array("Make" => "Mercedes-Benz","Model" => "GLA-Class AWD","Price" => "23298","Year" => "2015","Color" => "Blanc","KM" => "50000"),
-			array("Make" => "Mazda","Model" => "3","Price" => "3000","Year" => "2008","Color" => "Rouge","KM" => "131000"),
+			array("Make" => "Mazda","Model" => "3","Price" => "3000","Year" => "2008","Color" => "Rouge","KM" => "131000")
 		);
+	}
 	
+	function getList($make,$makeOrModel){
+		$tab_cars = getCarList();
+		$tab_result = array();
+		if ($makeOrModel){
+			foreach ($tab_cars as $value) {
+				if (!(in_array($value["Make"],$tab_result)))
+				array_push($tab_result,$value["Make"]);
+			}
+		}
+		else {
+			foreach ($tab_cars as $value) {
+				if($value["Make"] == $make){
+					if (!(in_array($value["Model"],$tab_result)))
+					array_push($tab_result,$value["Model"]);
+				}
+			}
+		}
+		
+		asort($tab_result);
+		return $tab_result;
 	}
 	
 	function getMakeList(){
-		$tab_cars = getCarList();
-		$tab_maker = array();
-		foreach ($tab_cars as $value) {
-			if (!(in_array($value["Make"],$tab_maker)))
-			array_push($tab_maker,$value["Make"]);
-		}
-		asort($tab_maker);
-		return $tab_maker;
+		return getList(null,true);
 	}
 	
 	function getModelList($make){
-		$tab_cars = getCarList();
-		$tab_model = array();
-		foreach ($tab_cars as $value) {
-			if($value["Make"] == $make){
-				if (!(in_array($value["Model"],$tab_model)))
-				array_push($tab_model,$value["Model"]);
-			}
-			
-		}
-		asort($tab_model);
-		return $tab_model;
+		if (validateMake($make))
+		return getList($make,false);
 	}
 	
-	function getMakeFromModel($model){
-		$make= null;
-		if(validateModel($model)){
+	function getCars($make,$model){
+		if(validateMake($make) && validateModel($model)){
 			//À compléter
 		}
 		return $make;
@@ -100,6 +105,4 @@
 		//À compléter for each + element.contains()?
 		return true;
 	}
-	
-
 ?>

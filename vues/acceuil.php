@@ -55,6 +55,9 @@
 		<div>
 			<div>
 				<h1>Achat de vehicule</h1>
+				<?php 
+					//include 'banner.php';
+				?>
 				<img src=".." alt="logo">
 			</div>
 			<div>

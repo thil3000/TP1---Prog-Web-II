@@ -8,7 +8,7 @@
 	require 'modeles/auto.php';
 	
 	function generateMakeList($chosenMake){
-		$tab_maker = getMakeList();
+		$tab_maker = getMakerList();
 		echo "<div class=\"dropdown\">\n";
 		echo "<button class=\"dropbtn\">$chosenMake</button>\n";
 		echo "<div class=\"dropdown-content\">\n";		

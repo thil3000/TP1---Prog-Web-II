@@ -97,7 +97,7 @@
 		if(validateMake($make) && validateModel($model)){
 			$tab_cars = getModelList($make);
 			foreach($tab_cars as $value){
-				if($value["make"] == $make && $value["model"] == $model){
+				if($value["Make"] == $make && $value["Model"] == $model){
 					array_push($value);
 				}
 			}
@@ -106,18 +106,33 @@
 	}
 	
 	function validateMake($make){
-		$tab_cars = getMakerList($make);
+		$isInArray = false;
+		$tab_cars = getCarList();
 		if (strpos($make, '%20'))
 		str_replace('%20', ' ', $make);
-		return in_array($make,$tab_cars,true);
-	}
+		foreach ($tab_cars as $value){
+			if(in_array($make,$value,true)){
+				$isInArray = true;
+			}
+			
+		}
+		return $isInArray;
+	};
+		
 		
 	
 
 	function validateModel($model){
-		$tab_cars = getMakerList($model);
+		$isInArray = false;
+		$tab_cars = getCarList();
 		if (strpos($model, '%20'))
 		str_replace('%20', ' ', $model);
-		return in_array($model,$tab_cars,true);
+		foreach ($tab_cars as $value){
+			if(in_array($model,$value,true)){
+				$isInArray = true;
+			}
+			
+		}
+		return $isInArray;
 	}
 ?>

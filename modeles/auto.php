@@ -106,18 +106,18 @@
 	}
 	
 	function validateMake($make){
-		if (strpos($make, '%20')){
-			str_replace('%20', ' ', $make);
-		}
-		//À compléter for each + element.contains()?
-		return true;
+		$tab_cars = getMakerList($make);
+		if (strpos($make, '%20'))
+		str_replace('%20', ' ', $make);
+		return in_array($make,$tab_cars,true);
 	}
+		
+	
 
 	function validateModel($model){
-		if (strpos($model, '%20')){
-			str_replace('%20', ' ', $model);
-		}
-		//À compléter for each + element.contains()?  if...else throw new Exception
-		return true;
+		$tab_cars = getMakerList($model);
+		if (strpos($model, '%20'))
+		str_replace('%20', ' ', $model);
+		return in_array($model,$tab_cars,true);
 	}
 ?>

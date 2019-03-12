@@ -93,10 +93,16 @@
 	}
 	
 	function getCars($make,$model){
+		$tab_result = null;
 		if(validateMake($make) && validateModel($model)){
-			//À compléter
+			$tab_cars = getModelList($make);
+			foreach($tab_cars as $value){
+				if($value["make"] == $make && $value["model"] == $model){
+					array_push($value);
+				}
+			}
 		}
-		return $make;
+		return $tab_result;
 	}
 	
 	function validateMake($make){

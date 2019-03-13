@@ -5,7 +5,8 @@
 
 <?php
 foreach ($tab_search_result as $car) {
-	print_r($car);
 	echo "<br>";
+	echo "<div>
+	</div>";
 }
 ?>

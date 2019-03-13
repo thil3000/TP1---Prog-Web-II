@@ -5,7 +5,7 @@
 
 <?php 
 	require 'modeles/auto.php';
-	include 'vues/vues.php';
+	//include 'vues/banner.php';
 	
 	$make = isset($_GET['make']) ? $_GET['make'] : '';
 	$model = isset($_GET['model']) ? $_GET['model'] : '';

@@ -7,7 +7,6 @@
 require '../modeles/auto.php';
 
 function getCarSearchResult($make,$model){
-	//echo "$make $model";
 	return getCars($make, $model);
 }
 

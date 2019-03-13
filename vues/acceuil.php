@@ -82,6 +82,7 @@
 		<div>
 			<div>
 				<h1>Achat de vehicule</h1>
+				<img src="vues/banner.php" />
 				<a href="index.php">test</a>
 			</div>
 			<div>

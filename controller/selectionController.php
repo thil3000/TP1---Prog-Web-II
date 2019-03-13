@@ -14,8 +14,7 @@ function getCarSearchResult($make,$model){
 $tab_search_result = array();
 $make = isset($_GET["make"])?$_GET["make"]:'';
 $model = isset($_GET["model"])?$_GET["model"]:'';
-if ($make != '' && $model != ''){
-	if(validateMake($make && validateModel($model)))
+if (validateMakeAndModel($make,$model)){
 	$tab_search_result = getCarSearchResult($make,$model);
 }
 

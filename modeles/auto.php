@@ -98,7 +98,7 @@
 			$tab_cars = getModelList($make);
 			foreach($tab_cars as $value){
 				if($value["Make"] == $make && $value["Model"] == $model){
-					array_push($value);
+					array_push($value,$tab_result);
 				}
 			}
 		}
@@ -113,6 +113,7 @@
 		foreach ($tab_cars as $value){
 			if(in_array($make,$value,true)){
 				$isInArray = true;
+				break;
 			}
 			
 		}
@@ -130,6 +131,7 @@
 		foreach ($tab_cars as $value){
 			if(in_array($model,$value,true)){
 				$isInArray = true;
+				break;
 			}
 			
 		}

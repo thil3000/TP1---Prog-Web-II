@@ -4,52 +4,18 @@
 -->
 
 <?php 
-
 	require 'modeles/auto.php';
+	include 'vues/vues.php';
 	
-	function generateMakeList($chosenMake){
-		$tab_maker = getMakerList();
-		echo "<div class=\"dropdown\">\n";
-		echo "<button class=\"dropbtn\">$chosenMake</button>\n";
-		echo "<div class=\"dropdown-content\">\n";		
-		
-		foreach ($tab_maker as $maker) {
-			echo "<a href=\"index.php?make=$maker\">$maker</a>\n";	
-		}
-		echo "</div>\n";
-		echo "</div>\n";
-	}
-	
-	function generateModelList($make){
-		$tab_model = getModelList($make);
-		echo "<div class=\"dropdown\">\n";
-		echo "<button class=\"dropbtn\">Model</button>\n";
-		echo "<div class=\"dropdown-content\">\n";	
-		foreach ($tab_model as $model) {
-			echo "<a href=\"index.php?make=$make&model=$model\">$model</a>\n";	
-		}
-		echo "</div>\n";
-		echo "</div>\n";
-	}
-	
-	function generateDropdownList(){
-		$make = isset($_GET['make']) ? $_GET['make'] : '';
-		$model = isset($_GET['model']) ? $_GET['model'] : '';
-		if($make == ''){
-			generateMakeList("Make");
-		}
-		else if($model == ''){	//make != ''
-			if(validateMake($make)){
-				generateMakeList($make);
-				generateModelList($make);
-			}
-		}
-		else{	//make && model != ''
-			if(validateMake($make) && validateModel($model)){
-				header("Location:controller/selectionController.php?make=$make&model=$model");
-			}
+	$make = isset($_GET['make']) ? $_GET['make'] : '';
+	$model = isset($_GET['model']) ? $_GET['model'] : '';
+	if($make != '' && $model != ''){	//make && model != ''
+		if(validateMake($make) && validateModel($model)){
+			header("Location:controller/selectionController.php?make=$make&model=$model");
 		}
 	}
-	
+	else
 	require 'vues/acceuil.php';
+	echo '<h2>Voiture du jour</h2>';
+	include 'vues/photocaroussel.php';
 ?>

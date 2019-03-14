@@ -6,9 +6,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Achat de vehicule</title>
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>	
+	<img src="../images/bannerphp.php" alt="Baniere" width="50%">
 		<?php
 			require '../modeles/auto.php';
 

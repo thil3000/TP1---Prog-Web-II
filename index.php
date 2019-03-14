@@ -1,6 +1,6 @@
 <!-- Page:index.php 
-	 Auteur: Thierry Légaré , Vincent Boies
-	 Date:Février 2019
+	 Auteur: Thierry Legare , Vincent Boies
+	 Date:Fevrier 2019
 -->
 <html>
 	<head>
@@ -9,23 +9,21 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>	
-		<img src="vues/banner.php" />
+		<img src="images/bannerphp.php" alt="Baniere" width="50%">
 		<?php 
 			require 'modeles/auto.php';		
 			
 			$make = isset($_GET['make']) ? $_GET['make'] : '';
 			$model = isset($_GET['model']) ? $_GET['model'] : '';
-			
-			if($make != '' && $model != ''){	//make && model != ''
-				if(validateMakeAndModel($make,$model)){
-					header("Location:controller/selectionController.php?make=$make&model=$model");
-				}
+			if(validateMakeAndModel($make,$model)){
+				header("Location:controller/selectionController.php?make=$make&model=$model");
 			}
 			else
 			require 'vues/accueil.php';
 			
 			echo '<h2>Voiture du jour</h2>';
 			include 'vues/photocaroussel.php';
+			echo "<br>";
 		?>
 	</body>
 </html>

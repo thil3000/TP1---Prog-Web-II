@@ -13,11 +13,11 @@
 		$carColor = $car["Color"];
 		$carKm = $car["KM"];
 		echo "<br>";
-		echo "<div class=\"cars\">";
-		echo "   <img src=\"carpic.php?image=$carimage\">";
-		echo "   <h3>$carMaker $carModel</h3>";
-		echo "   <p>$carYear $carColor $carKm</p>";
-		echo "   <a href=\"controller/fincancementController.php\">$carPrice</a>"; //a ou submit de $car
+		echo "<div class=\"car\">";
+		echo "   <img class=\"carImg\" src=\"carpic.php?image=$carimage\">";
+		echo "   <h3 class=\"carMakeModel\">$carMaker $carModel</h3>";
+		echo "   <p class=\"carOtherInfo\">$carYear $carColor $carKm</p>";
+		echo "   <a class=\"carPrice\" href=\"controller/fincancementController.php?car=$car\">$carPrice</a>"; //a ou submit de $car
 		echo "</div>";
 	}
 ?>

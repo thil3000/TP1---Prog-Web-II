@@ -1,6 +1,6 @@
 <!-- Page:accueil.php 
-	 Auteur: Thierry Légaré , Vincent Boies
-	 Date:Février 2019
+	 Auteur: Thierry Legare , Vincent Boies
+	 Date:Fevrier 2019
 -->
 <?php
 	function generateMakeList($chosenMake){

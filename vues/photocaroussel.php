@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+
 <div class="container">
     <div class="carousel">
         <input type="radio" id="carousel-1" name="carousel[]" checked>
         <input type="radio" id="carousel-2" name="carousel[]">
-     <input type="radio" id="carousel-3" name="carousel[]">
+        <input type="radio" id="carousel-3" name="carousel[]">
         <input type="radio" id="carousel-4" name="carousel[]">
         <input type="radio" id="carousel-5" name="carousel[]">
         <ul class="carousel__items">
@@ -21,28 +13,26 @@
             <li class="carousel__item"><img src="//lh5.googleusercontent.com/-gywqIeMvel0/U8-EolKdtkI/AAAAAAAABdM/G0-NHuvvJUU/w1358-h905-no/carousel-4.jpg" alt=""></li>
             <li class="carousel__item"><img src="//lh5.googleusercontent.com/--2iANjL3ikc/U8-EoGJ18mI/AAAAAAAABdI/fBe-q3Gos6Y/w1358-h905-no/carousel-5.jpg" alt=""></li>
         </ul>
-     <div class="carousel__prev">
-        <label for="carousel-1"></label>
-        <label for="carousel-2"></label>
-        <label for="carousel-3"></label>
-        <label for="carousel-4"></label>
-        <label for="carousel-5"></label>
-     </div>
-     <div class="carousel__next">
-       <label for="carousel-1"></label>
-       <label for="carousel-2"></label>
-       <label for="carousel-3"></label>
-       <label for="carousel-4"></label>
-       <label for="carousel-5"></label>
-     </div>
-     <div class="carousel__nav">
-       <label for="carousel-1"></label>
-       <label for="carousel-2"></label>
-       <label for="carousel-3"></label>
-       <label for="carousel-4"></label>
-       <label for="carousel-5"></label>
-     </div>
-   </div>
- </div>
-</body>
-</html>
+        <div class="carousel__prev">
+            <label for="carousel-1"></label>
+            <label for="carousel-2"></label>
+            <label for="carousel-3"></label>
+            <label for="carousel-4"></label>
+            <label for="carousel-5"></label>
+        </div>
+        <div class="carousel__next">
+            <label for="carousel-1"></label>
+            <label for="carousel-2"></label>
+            <label for="carousel-3"></label>
+            <label for="carousel-4"></label>
+            <label for="carousel-5"></label>
+        </div>
+        <div class="carousel__nav">
+            <label for="carousel-1"></label>
+            <label for="carousel-2"></label>
+            <label for="carousel-3"></label>
+            <label for="carousel-4"></label>
+            <label for="carousel-5"></label>
+        </div>
+    </div>
+</div>

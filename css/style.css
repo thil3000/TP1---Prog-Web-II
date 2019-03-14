@@ -1,49 +1,6 @@
         
         /* <link rel="stylesheet" type="text/css" href="css/style.css"> */
        
-       /* dropdown */
-        a{
-			color:black;
-        }
-        .dropbtn {
-			background-color: #702C8E;
-			color: white;
-			padding: 16px;
-			font-size: 16px;
-			border: none;
-			cursor: pointer;
-		}
-
-		.dropdown {
-			position: relative;
-			display: inline-block;
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f9f9f9;
-			min-width: 160px;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-
-		.dropdown-content a {
-			color: black;
-			padding: 12px 16px;
-			text-decoration: none;
-			display: block;
-		}
-
-		.dropdown-content a:hover {background-color: #f1f1f1}
-
-		.dropdown:hover .dropdown-content {
-			display: block;
-		}
-
-		.dropdown:hover .dropbtn {
-			background-color: rgb(88, 34, 110);
-		}
 
         /* body  */
         body{
@@ -57,6 +14,38 @@
             text-align: center;
 		}
 		
+		
+	/* dropdown */
+		.dropbtn {
+			background-color: #702C8E;
+			color: white;
+			font-size: 16px;
+		}
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
+
+		.dropdown-content {
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+		}
+
+		.dropdown-content a:hover {
+			background-color: #f1f1f1;
+		}
+
+		.dropdown:hover .dropbtn {
+			background-color: rgb(88, 34, 110);
+		}
+			
 		/* caroussel */
 		
 .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__prev > label:nth-child(5), .carousel > input[type="radio"]:nth-child(1):checked ~ .carousel__next > label:nth-child(2), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__prev > label:nth-child(1), .carousel > input[type="radio"]:nth-child(2):checked ~ .carousel__next > label:nth-child(3), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__prev > label:nth-child(2), .carousel > input[type="radio"]:nth-child(3):checked ~ .carousel__next > label:nth-child(4), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__prev > label:nth-child(3), .carousel > input[type="radio"]:nth-child(4):checked ~ .carousel__next > label:nth-child(5), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__prev > label:nth-child(4), .carousel > input[type="radio"]:nth-child(5):checked ~ .carousel__next > label:nth-child(1) {
@@ -72,10 +61,6 @@
 	-moz-box-sizing: border-box;
   }
   
-  body {
-	background: #fcfcfc;
-	margin: 0;
-  }
   
   .container {
 	width: 900px;

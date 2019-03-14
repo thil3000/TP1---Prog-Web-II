@@ -111,8 +111,8 @@
 		
 	function validateMake($makeToValidate){
 		$tab_maker = getMakerList();
-		if (strpos($toValidate, '%20'))
-		str_replace('%20', ' ', $toValidate);
+		if (strpos($makeToValidate, '%20'))
+		str_replace('%20', ' ', $makeToValidate);
 
 		if(in_array($makeToValidate,$tab_maker,true)){
 			return true;

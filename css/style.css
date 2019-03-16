@@ -19,17 +19,17 @@
 
 /*	dropdown */
 
-	#dropdown{
+		#dropdown{
 			margin: auto;
 			width: 70%;
-	}
+		}
 	
-	.dropdown {
+		.dropdown {
 			position: relative;
 			display: inline-block;
 		}
 
-	.dropdownbtn {
+		.dropdownbtn {
 			background-color: #702C8E;
 			color: white;
 			padding: 16px;
@@ -68,6 +68,13 @@
 			background-color: rgb(88, 34, 110);
 		}
 
+
+		/* car */
+		
+		.car{
+				position: relative;
+				display: inline-block;		
+		}
 		
 		/* caroussel */
 		

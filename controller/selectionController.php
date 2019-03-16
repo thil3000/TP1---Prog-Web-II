@@ -16,7 +16,7 @@
 			require '../modeles/auto.php';
 
 			function getCarSearchResult($make,$model){
-				return getCars($make, $model);
+				return getCarsFromMakeModel($make, $model);
 			}
 
 			$tab_search_result = array();

@@ -99,17 +99,17 @@
 		};
 	}
 	
-	function getCar($car_id) {
+	function getCarFromId($car_id) {
 		return getCarList()[$car_id];
 	}
 	
-	function getCars($make,$model){
+	function getCarsFromMakeModel($make,$model){
 		$tab_result = array();
 		if (validateMakeAndModel($make,$model)){
 			$tab_cars = getCarList();
-			foreach($tab_cars as $car){
+			foreach($tab_cars as $key => $car){
 				if($car[CAR_MAKE] == $make && $car[CAR_MODEL] == $model){
-					array_push($tab_result, $car);
+					array_push($tab_result, $key);
 				}
 			}
 			return $tab_result;

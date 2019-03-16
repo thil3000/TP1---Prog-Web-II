@@ -4,7 +4,7 @@
 	
 	$id = isset($_GET[GET_ID]) ? $_GET[GET_ID] : '';
 	$path = getcar($id)[CAR_IMAGE];
-	$im = imagecreatefromjpeg($path);
+	$im = imagecreatefromjpeg("../" . $path);
 	if($im !== false){
 //		list($w,$h) = getimagesize($im);
 //		$nw = 200;

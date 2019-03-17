@@ -14,10 +14,18 @@
 		$carKm = $car[CAR_KM];
 		echo "<br>";
 		echo "<div class=\"car\">";
-		echo "   <img class=\"carImg\" src=\"../images/carpic.php?id=$carID\">";
-		echo "   <h3 class=\"carMakeModel\">$carMaker $carModel</h3>";
-		echo "   <p class=\"carOtherInfo\">$carYear $carColor $carKm</p>";
-		echo "   <a class=\"carPrice\" href=\"controller/fincancementController.php?carID=$carID\">$carPrice</a>";
+		echo "   <div class=\"carElem\">";
+		echo "      <img class=\"carImg\" src=\"../images/carpic.php?id=$carID\">";
+		echo "   </div>";
+		echo "   <div class=\"carElem\">";
+		echo "      <h3 class=\"carMakeModel\">$carMaker $carModel</h3>";
+		echo "   </div>";
+		echo "   <div class=\"carElem\">";
+		echo "      <p class=\"carOtherInfo\">$carYear $carColor $carKm</p>";
+		echo "   </div>";
+		echo "   <div class=\"carElem\">";
+		echo "      <a class=\"carPrice\" href=\"controller/fincancementController.php?carID=$carID\">$carPrice</a>";
+		echo "   </div>";
 		echo "</div>";	
 	}
 ?>

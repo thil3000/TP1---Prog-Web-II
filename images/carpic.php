@@ -5,14 +5,10 @@
 	$id = isset($_GET[GET_ID]) ? $_GET[GET_ID] : '';
 	$path = "../" . getCarFromId($id)[CAR_IMAGE];
 	$im = imagecreatefromjpeg($path);
-	if($im !== false){
-		list($w,$h) = getimagesize($im);
-		$nw = $w;
-		$nh = $h;
-		$truecolor = imagecreatetruecolor($nw, $nh);
-		imagecopyresampled($truecolor, $im, 0, 0, 0, 0, $nw, $nh, $w, $h);
+	$im_small = imagescale($im, 200);
+	if($im_small !== false){
 		header( "Content-type: image/jpeg" );
-		imagejpeg( $im );
-		imagedestroy( $im );
+		imagejpeg( $im_small );
+		imagedestroy( $im_small );
 	}
 ?>

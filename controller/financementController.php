@@ -22,11 +22,11 @@
 			//Initialisation validation et assignation
 			
 			$carID = isset($_GET['carID']) ? $_GET['carID']: '';
-			$account = isset($_POST['account']) ? $_POST['account']: 0;
 			$durationInMonths = isset($_POST['duration']) ? $_POST['duration']: 60;
-		
+			$account = isset($_POST['account']) ? $_POST['account']: 0;
 			
-			$account = filter_var($account,FILTER_SANITIZE_NUMBER_FLOAT);
+			$account = str_replace(',','.',$account);
+			$account = filter_var($account,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
 			
 			echo '$' . number_format($account,2) . "\n";
 			
@@ -48,7 +48,7 @@
 			
 			
 			//Fonction
-			function calculateFinancement(){
+			function calculateTotalCost($carPrice,$account){
 				return $carPrice - $account;
 			}
 			
@@ -56,58 +56,67 @@
 				return $carPrice * TAXE;
 			}
 			
-			function calculateMensualite($interest){
-				$pow = pow((1+$interest),$durationInMounts);
-				$carFinalValuePerMonths = $carValue * (($interest * $pow) / ($pow - 1));
+			function calculateMensualite($totalCost,$durationInMonths,$interestRate){
+				$pow = pow((1+$interestRate),$durationInMonths);
+				$carFinalValuePerMonths = $totalCost * (($interestRate * $pow) / ($pow - 1));
 				return $carFinalValuePerMonths;
 			}
 
-			function calculateInterest(){
-				// $interst = ($carPricePerMonths * $durationInMounts) - getCarValueWithAccount($carPrice, $account);
-				switch ($durationInMounts) {
-					case '12':
-						if($carPrice <= 10000)
-							$interst = 6.95;
-						else
-							$interst = 7.25;
-						break;
-					case '24':
-						if($carPrice <= 10000)
-							$interst = 6.95;
-						else
-							$interst = 7.25;
-						break;
-					case '36':
-						if($carPrice <= 10000)
-							$interst = 6.25;
-						else
-							$interst = 6.30;
-						break;
-					case '48':
-						if($carPrice <= 10000)
-							$interst = 6.10;
-						else
-							$interst = 6.30;
-						break;
-					case '60':
-						if($carPrice <= 10000)
-							$interst = 6.0;
-						else
-							$interst = 5.85;
-						break;
-				}
+			function calculateTotalInterest($mensualite, $durationInMonths, $totalCost){
+				$interst = ($mensualite * $durationInMonths) - $totalCost;
 				return $interst;
 			}
 
-			// $finencement = calculateFinancement($carPrice, $account);
-			// $mensualite = calculateMensualite($carPrice ,$durationInMonths, $interest);
-			// $interestAffichage = calculateInterest($carPricePerMonths, $carVal, $duration, $account);
-			// $taxe = calculateTaxe($carVal);
-			// $tab_total = [$finencement, $mensualite , $interestAffichage, $taxe];
-			// foreach ($tab_total as $value) {
-			// 	//echo "$value";
-			// }
+			function montantAFinancer($totalCost,$totalInterest){
+				return $totalCost + $totalInterest;
+			}
+
+			function getInterestRate($carPrice,$durationInMonths){
+				$interestRate;
+				switch ($durationInMonths) {
+					case '12':
+						if($carPrice <= 10000)
+							$interestRate = 6.95;
+						else
+							$interestRate = 7.25;
+						break;
+					case '24':
+						if($carPrice <= 10000)
+							$interestRate = 6.95;
+						else
+							$interestRate = 7.25;
+						break;
+					case '36':
+						if($carPrice <= 10000)
+							$interestRate = 6.25;
+						else
+							$interestRate = 6.30;
+						break;
+					case '48':
+						if($carPrice <= 10000)
+							$interestRate = 6.10;
+						else
+							$interestRate = 6.30;
+						break;
+					case '60':
+						if($carPrice <= 10000)
+							$interestRate = 6.0;
+						else
+							$interestRate = 5.85;
+						break;
+				}
+				return $interestRate;
+			}
+
+			$totalCost = calculateTotalCost($carPrice, $account);
+			$taxe = calculateTaxe($carPrice);
+			$interestRate = getInterestRate($carPrice,$durationInMonths);
+			$interestRate = $interestRate / 100;
+			$mensualite = calculateMensualite($totalCost,$durationInMonths,$interestRate);
+			$totalInterest = calculateTotalInterest($mensualite,$durationInMonths,$totalCost);
+			$montantAFinancer = montantAFinancer($totalCost,$totalInterest);
 			
+			$tab_total = [$carPrice,$account,$totalCost,$taxe,$totalInterest,$montantAFinancer,$mensualite];
 			include '../vues/financement.php';
 			
 		?>

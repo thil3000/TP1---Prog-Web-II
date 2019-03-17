@@ -9,8 +9,7 @@
 			text-shadow: 10px;
 			text-align: center;
 	}
-		:url("/background.png")/*	background-color: #C42551;*/
-		/*	color: #289EBC;*/
+		:url("/background.png")
 	.banner{
 			display: block;
 			margin: auto;
@@ -37,8 +36,6 @@
 			cursor: pointer;
 			position: center;
 		}
-
-		
 
 		.dropdown-inside {
 			display: none;
@@ -98,6 +95,7 @@
 		font-family: fantasy;	
 		color: rgb(0, 8, 117);
 		}
+
 		.photoCarousel{
 			text-align: center;
 		}
@@ -108,13 +106,14 @@
 			overflow:visible;
 			 position: sticky;
 			 }
+
 		.fling-minislide img{
 			position:absolute;
 			animation:fling-minislide 20s infinite; 
 			opacity:0;
 			width: 100%;
 			height: auto;
-				}
+			}
 
 		@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}} 
 		.fling-minislide img:nth-child(1){animation-delay:0s;}

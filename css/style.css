@@ -1,7 +1,7 @@
 	body {
 			width: 100%;
 			height: 100%;
-			background-image:url("../images/background.png");
+			background-image:url("../images/background(re).png");
 			overflow: hidden;
 			text-shadow: 10px;
 			text-align: center;
@@ -69,18 +69,8 @@
 		/* car */
 		
 		.car{
-			width: 60%;
-			display: block;
-			border: 0.2rem outset black;
-			border-radius: 9px;
-			font: bold 1rem sans-serif;
-			margin: auto;
-			padding: 1rem;
-		}
-		
-		.carElem{
-			position: relative;
-			display: inline-block;		
+				position: relative;
+				display: inline-block;		
 		}
 		
 		/* caroussel */

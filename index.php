@@ -37,7 +37,7 @@
 		
 		<div class="photoCarousel">
 			<?php
-				echo '<h2>Voiture du jour</h2>';
+				echo '<h2 id="carrouselTitle">Voitures du jour</h2>';
 				include 'vues/photocaroussel.php';
 			?>
 		</div>

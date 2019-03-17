@@ -13,28 +13,27 @@
 	<img class="banner" src="../images/bannerphp.php" alt="Baniere" width="50%">
 		<?php
 		include '../modeles/auto.php';
+		include '../vues/financement.php';
 
 			define('TAXE', 0,14975);
 			$car = isset($_GET['carID']) ? $_GET['carID']: '';
 			$carValue = null;
+			$durantionInMounts = isset($_POST['duration']) ? $_POST['duration']: 60;
+			$account = isset($_POST['account']) ? $_POST['account']: 0;
+		
 			if($car != ''){
-				$carValue = ;
+				$carValue = getCarPrice($car);
 			}
 			else{
 				throw new Exception("Véhicule non trouvé", 1);
 			}
-			// $durantionInMounts = isset($_POST['duration']) ? $_POST['duration']: null;
-			 $account = isset($_POST['account']) ? $_POST['accont']: null;
-
-			 	
-			if($account == ''){
-						throw new Exception("Account non trouvé", 2);
-					}
+			
+			
 			if($account > $carValue){
 				throw new Exception("Account doit être plus petit que le prix de l\'auto total", 3);
 			}
 
-			if($account < 0){
+			elseif($account < 0){
 				throw new Exception("Account doit être un chifre positif", 4);
 			}
 				function calculatefinancement(){
@@ -48,8 +47,50 @@
 					return $carFianalValuePerMounts;
 				}
 
-				function calculateInterest($carPricePerMount,$durationInMounts){
-					$interst = ($carPricePerMount * $durationInMounts) - getCarValueWithAccount($carValue, $account);
+				function calculateInterest($carPrice, $durationInMounts){
+					// $interst = ($carPricePerMount * $durationInMounts) - getCarValueWithAccount($carValue, $account);
+					switch ($durationInMounts) {
+						case '12':
+							if($carPrice <= 10000){
+								$interst = 6.95;
+							}
+							else{
+								$interst = 7.25;
+							}
+							break;
+						case '24':
+							if($carPrice <= 10000){
+								$interst = 6.95;
+							}
+							else{
+								$interst = 7.25;
+							}
+							break;
+						case '36':
+							if($carPrice <= 10000){
+								$interst = 6.25;
+							}
+							else{
+								$interst = 6.30;
+							}
+							break;
+						case '48':
+							if($carPrice <= 10000){
+								$interst = 6.10;
+							}
+							else{
+								$interst = 6.30;
+							}
+							break;
+						case '60':
+							if($carPrice <= 10000){
+								$interst = 6.0;
+							}
+							else{
+								$interst = 5.85;
+							}
+							break;
+					}
 					return $interst;
 				}
 
@@ -68,6 +109,7 @@
 						echo "$value";
 					}
 				}
+			
 		?>
 	</body>
 </html>

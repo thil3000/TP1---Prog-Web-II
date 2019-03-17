@@ -14,14 +14,14 @@
 		<?php
 			define('TAXE', 0,14975);
 			
-			$carValue = isset($_POST['Price']) ? $_POST['price']: null;
-			$account = isset($_POST['account']) ? $_POST['price']: null;
+			// $carValue = isset($_POST['Price']) ? $_POST['price']: null;
+			// $account = isset($_POST['account']) ? $_POST['accont']: null;
 			
 				function calculatefinancement($carValue, $account){
 					return $carValue - $account;
 				}
 				function calculateMensualite($carValue, $durationInMounts, $interest){
-					$carFianalValuePerMounts = $carValue * (($interest(1+$interest) ) * exp($durationInMounts) / ((1+$interest) * exp($durationInMounts) - 1));
+					$carFianalValuePerMounts = $carValue * pow(($interest(1+$interest)),$durationInMounts) / pow(((1+$interest)- 1),$durationInMounts);
 					return $carFianalValuePerMounts;
 				}
 

@@ -12,24 +12,37 @@
 	<body>	
 	<img class="banner" src="../images/bannerphp.php" alt="Baniere" width="50%">
 		<?php
-
 			define('TAXE', 0,14975);
+			
+			$carValue = isset($_POST['Price']) ? $_POST['price']: null;
+			$account = isset($_POST['account']) ? $_POST['price']: null;
+			
+				function calculatefinancement($carValue, $account){
+					return $carValue - $account;
+				}
+				function calculateMensualite($carValue, $durationInMounts, $interest){
+					$carFianalValuePerMounts = $carValue * (($interest(1+$interest) ) * exp($durationInMounts) / ((1+$interest) * exp($durationInMounts) - 1));
+					return $carFianalValuePerMounts;
+				}
 
-			function Calculatefinancement($carValue, $account){
-				return $carValue - $account;
-			}
-			function calculateMensualite($carValue, $durationInMounts, $interest){
-				$carFianalValuePerMounts = $carValue * (($interest(1+$interest) ) * exp($durationInMounts) / ((1+$interest) * exp($durationInMounts) - 1));
-				return $carFianalValuePerMounts;
+				function calculateInterest($carPricePerMount,$carValue,  $durationInMounts ,$account){
+					$interst = ($carPricePerMount * $durationInMounts) - getCarValueWithAccount($carValue, $account);
+					return $interst;
+				}
+
+				function calculateTaxe($carFinalValue){
+					return $carFinalValue * TAXE;
+				}
+
+			try{
+				echo 'prix:10000 et 2000 d\'account' . calculatefinancement(10000,2000);
+				echo 'mensualiter quand auto=10000 ,interest=1000 mois=36' . calculateMensualite(10000,36,1000);
+				echo 'calculater  les Interets quand auto=10000, price per mounth = 400, durer = 36 mois , account=0' . calculateInterest(400,10000,36,0);
+				echo 'calculer les taxes quand prix final auto = 10000' . calculateTaxe(10000);
 			}
 
-			function calculateInterest($carValuePerMount,$carValue,  $durationInMounts ,$account){
-				$interst = ($carValuePerMount * $durationInMounts) - getCarValueWithAccount($carValue, $account);
-				return $interst;
-			}
-
-			function calculateTaxe($carFinalValue){
-				return $carFinalValue * TAXE;
+			catch(exception $e){
+				echo '1-une exeption s\'est produite. message derrueur #' . getMessage();
 			}
 		?>
 	</body>

@@ -26,7 +26,9 @@
 			$durationInMonths = isset($_POST['duration']) ? $_POST['duration']: 60;
 		
 			
-			// a faire valider account
+			$account = filter_var($account,FILTER_SANITIZE_NUMBER_FLOAT);
+			
+			echo '$' . number_format($account,2) . "\n";
 			
 			$carPrice = null;
 			
@@ -97,14 +99,14 @@
 				return $interst;
 			}
 
-//			$finencement = calculateFinancement($carPrice, $account);
-//			$mensualite = calculateMensualite($carPrice ,$durationInMonths, $interest);
-//			$interestAffichage = calculateInterest($carPricePerMonths, $carVal, $duration, $account);
-//			$taxe = calculateTaxe($carVal);
-//			$tab_total = [$finencement, $mensualite , $interestAffichage, $taxe];
-//			foreach ($tab_total as $value) {
-//				//echo "$value";
-//			}
+			// $finencement = calculateFinancement($carPrice, $account);
+			// $mensualite = calculateMensualite($carPrice ,$durationInMonths, $interest);
+			// $interestAffichage = calculateInterest($carPricePerMonths, $carVal, $duration, $account);
+			// $taxe = calculateTaxe($carVal);
+			// $tab_total = [$finencement, $mensualite , $interestAffichage, $taxe];
+			// foreach ($tab_total as $value) {
+			// 	//echo "$value";
+			// }
 			
 			include '../vues/financement.php';
 			

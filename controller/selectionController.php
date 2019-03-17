@@ -25,6 +25,9 @@
 			if (validateMakeAndModel($make,$model)){
 				$tab_search_result = getCarSearchResult($make,$model);
 			}
+			else {
+				
+			}
 
 			require '../vues/selection.php';
 		?>

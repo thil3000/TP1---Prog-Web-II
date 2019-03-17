@@ -12,17 +12,24 @@
 	<body>	
 	<img class="banner" src="../images/bannerphp.php" alt="Baniere" width="50%">
 		<?php
-			function getCarValueWithAccount($carValue, $account){
+
+			define('TAXE', 0,14975);
+
+			function Calculatefinancement($carValue, $account){
 				return $carValue - $account;
 			}
-			function getMountlyCost($carValue, $durationInMounts, $interest){
+			function calculateMensualite($carValue, $durationInMounts, $interest){
 				$carFianalValuePerMounts = $carValue * (($interest(1+$interest) ) * exp($durationInMounts) / ((1+$interest) * exp($durationInMounts) - 1));
 				return $carFianalValuePerMounts;
 			}
 
-			function getInterest($carValuePerMount,$carValue,  $durationInMounts ,$account){
+			function calculateInterest($carValuePerMount,$carValue,  $durationInMounts ,$account){
 				$interst = ($carValuePerMount * $durationInMounts) - getCarValueWithAccount($carValue, $account);
 				return $interst;
+			}
+
+			function calculateTaxe($carFinalValue){
+				return $carFinalValue * TAXE;
 			}
 		?>
 	</body>

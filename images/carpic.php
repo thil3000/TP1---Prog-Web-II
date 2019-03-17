@@ -3,10 +3,10 @@
 	define("GET_ID", "id");
 
 	$id = isset($_GET[GET_ID]) ? $_GET[GET_ID] : '';
-	$path = "../" . getCarFromId($id)[CAR_IMAGE];
+	$path = getCarFromId($id)[CAR_IMAGE];
 	
 	if(file_exists($path)){
-		$im = imagecreatefromjpeg($path);
+		$im = imagecreatefromjpeg("../" . $path);
 		$x = imagesx($im);
 		$y = imagesy($im);
 		$newx = 200;

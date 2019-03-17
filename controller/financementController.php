@@ -24,10 +24,7 @@
 			$carID = isset($_GET['carID']) ? $_GET['carID']: '';
 			$account = isset($_POST['account']) ? $_POST['account']: 0;
 			$durationInMonths = isset($_POST['duration']) ? $_POST['duration']: 60;
-			
-			echo $account;
-			echo "<br>";
-			echo $durationInMonths . " ";
+		
 			
 			// a faire valider account
 			
@@ -46,8 +43,6 @@
 			else if($account < 0){
 				throw new Exception("Account doit être un chifre positif", 4);
 			}
-			
-			echo "3 ";
 			
 			
 			//Fonction
@@ -102,19 +97,16 @@
 				return $interst;
 			}
 
-			$finencement = calculateFinancement($carVal, $account);
-			$mensualite = calculateMensualite($carVal ,$duration, $interest);
-			$interestAffichage = calculateInterest($carPricePerMonths, $carVal, $duration, $account);
-			$taxe = calculateTaxe($carVal);
-			$tab_total = [$finencement, $mensualite , $interestAffichage, $taxe];
-			foreach ($tab_total as $value) {
-				//echo "$value";
-			}
+//			$finencement = calculateFinancement($carPrice, $account);
+//			$mensualite = calculateMensualite($carPrice ,$durationInMonths, $interest);
+//			$interestAffichage = calculateInterest($carPricePerMonths, $carVal, $duration, $account);
+//			$taxe = calculateTaxe($carVal);
+//			$tab_total = [$finencement, $mensualite , $interestAffichage, $taxe];
+//			foreach ($tab_total as $value) {
+//				//echo "$value";
+//			}
 			
-			
-			echo "4";
 			include '../vues/financement.php';
-			echo "5"
 			
 		?>
 	</body>

@@ -2,7 +2,7 @@
 	 Auteur: Thierry Légaré , Vincent Boies
 	 Date:Février 2019
 -->
-<form action="../controller/financementController.php" method="post">
+<form action="../controller/financementController.php?carID=<?php echo $carID?>" method="post">
 	<select name="duration">
 		<option value="12" <?php if($durationInMonths==12) echo 'selected="selected"' ?> >12 mois 6.95% - 7.25%</option>
 		<option value="24" <?php if($durationInMonths==24) echo 'selected="selected"' ?> >24 mois 6.95% - 7.25%</option>

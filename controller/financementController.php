@@ -28,8 +28,6 @@
 			$account = str_replace(',','.',$account);
 			$account = filter_var($account,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
 			
-			echo '$' . number_format($account,2) . "\n";
-			
 			$carPrice = null;
 			
 			if($carID != ''){
@@ -109,14 +107,15 @@
 			}
 
 			$totalCost = calculateTotalCost($carPrice, $account);
-			$taxe = calculateTaxe($carPrice);
+			$taxe = calculateTaxe($totalCost);
 			$interestRate = getInterestRate($carPrice,$durationInMonths);
 			$interestRate = $interestRate / 100;
-			$mensualite = calculateMensualite($totalCost,$durationInMonths,$interestRate);
+			$mensualite = calculateMensualite($totalCost,$durationInMonths,($interestRate/12));
 			$totalInterest = calculateTotalInterest($mensualite,$durationInMonths,$totalCost);
 			$montantAFinancer = montantAFinancer($totalCost,$totalInterest);
 			
-			$tab_total = [$carPrice,$account,$totalCost,$taxe,$totalInterest,$montantAFinancer,$mensualite];
+			$tab_total = ["Prix" => $carPrice,"Acompte" => $account,"Cout total" => $totalCost, "Taxe" => $taxe,"Total d'interêt" => $totalInterest,"Montant à financer" => $montantAFinancer,"Mensualité" => $mensualite];
+			
 			include '../vues/financement.php';
 			
 		?>

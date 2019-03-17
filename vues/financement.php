@@ -10,9 +10,12 @@
 		<option value="48" <?php if($durationInMonths==48) echo 'selected="selected"' ?> >48 mois 6.10% - 6.30%</option>
 		<option value="60" <?php if($durationInMonths==60) echo 'selected="selected"' ?> >60 mois 6.00% - 5.85%</option>
 	</select><br>
-	Account: <input type="text" name="account" value="<?php echo $account?>"><br>
+	<label for="account">Account (Arondir au dollard prêt): </label><input type="text" name="account" value="<?php echo $account?>"><br>
 	<input type="submit">
 </form>
 <?php
-	
+
+	foreach ($tab_total as $key => $value) {
+		echo $key . ": $" . number_format($value,2) . "<br>";
+	} 
 ?>

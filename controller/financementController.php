@@ -12,38 +12,62 @@
 	<body>	
 	<img class="banner" src="../images/bannerphp.php" alt="Baniere" width="50%">
 		<?php
+		include '../modeles/auto.php';
+
 			define('TAXE', 0,14975);
-			
-			// $carValue = isset($_POST['Price']) ? $_POST['price']: null;
-			// $account = isset($_POST['account']) ? $_POST['accont']: null;
-			
-				function calculatefinancement($carValue, $account){
+			$car = isset($_GET['carID']) ? $_GET['carID']: '';
+			$carValue = null;
+			if($car != ''){
+				$carValue = ;
+			}
+			else{
+				throw new Exception("Véhicule non trouvé", 1);
+			}
+			// $durantionInMounts = isset($_POST['duration']) ? $_POST['duration']: null;
+			 $account = isset($_POST['account']) ? $_POST['accont']: null;
+
+			 	
+			if($account == ''){
+						throw new Exception("Account non trouvé", 2);
+					}
+			if($account > $carValue){
+				throw new Exception("Account doit être plus petit que le prix de l\'auto total", 3);
+			}
+
+			if($account < 0){
+				throw new Exception("Account doit être un chifre positif", 4);
+			}
+				function calculatefinancement(){
+					
 					return $carValue - $account;
 				}
-				function calculateMensualite($carValue, $durationInMounts, $interest){
-					$carFianalValuePerMounts = $carValue * pow(($interest(1+$interest)),$durationInMounts) / pow(((1+$interest)- 1),$durationInMounts);
+				
+				function calculateMensualite($durationInMounts, $interest){
+					$pow = pow((1+$interest),$durationInMounts);
+					$carFianalValuePerMounts = $carValue * (($interest * $pow) / ($pow - 1));
 					return $carFianalValuePerMounts;
 				}
 
-				function calculateInterest($carPricePerMount,$carValue,  $durationInMounts ,$account){
+				function calculateInterest($carPricePerMount,$durationInMounts){
 					$interst = ($carPricePerMount * $durationInMounts) - getCarValueWithAccount($carValue, $account);
 					return $interst;
 				}
 
-				function calculateTaxe($carFinalValue){
-					return $carFinalValue * TAXE;
+				function calculateTaxe($carValue){
+					return $carValue * TAXE;
 				}
 
-			try{
-				echo 'prix:10000 et 2000 d\'account' . calculatefinancement(10000,2000);
-				echo 'mensualiter quand auto=10000 ,interest=1000 mois=36' . calculateMensualite(10000,36,1000);
-				echo 'calculater  les Interets quand auto=10000, price per mounth = 400, durer = 36 mois , account=0' . calculateInterest(400,10000,36,0);
-				echo 'calculer les taxes quand prix final auto = 10000' . calculateTaxe(10000);
-			}
 
-			catch(exception $e){
-				echo '1-une exeption s\'est produite. message derrueur #' . getMessage();
-			}
+				function caculateCarTotal($carVal, $carPricePerMount, $duration, $interest){
+					$finencement = calculatefinancement($carVal, $account);
+					$mensualite = calculateMensualite($carVal ,$duration, $interest);
+					$interestAffichage = calculateInterest($carPricePerMount, $carVal, $duration, $account);
+					$taxe = calculateTaxe($carVal);
+					$tab_total = [$finencement, $mensualite , $interestAffichage, $taxe];
+					foreach ($tab_total as $value) {
+						echo "$value";
+					}
+				}
 		?>
 	</body>
 </html>

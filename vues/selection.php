@@ -24,7 +24,7 @@
 		echo "      <p class=\"carOtherInfo\">$carYear $carColor $carKm</p>";
 		echo "   </div>";
 		echo "   <div class=\"carElem\">";
-		echo "      <a class=\"carPrice\" href=\"controller/fincancementController.php?carID=$carID\">$carPrice</a>";
+		echo "      <a class=\"carPrice\" href=\"financementController.php?carID=$carID\">$carPrice</a>";
 		echo "   </div>";
 		echo "</div>";	
 	}

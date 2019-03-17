@@ -10,7 +10,7 @@
 		$x = imagesx($im);
 		$y = imagesy($im);
 		$ratio = $y/$x;
-		$newx=$x;
+		$newx=200;
 		$newy=$y;
 		if($x>$y){
 			$newx = 200;

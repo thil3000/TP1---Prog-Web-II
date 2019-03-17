@@ -107,8 +107,8 @@
 		.fling-minislide {
 			width:565px; 
 			height:265px; 
-/*			overflow:visible;*/
-/*			position: sticky;*/
+			overflow:visible;
+			position: sticky;
 		}
 
 		.fling-minislide img{

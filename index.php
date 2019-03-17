@@ -12,12 +12,12 @@
 	
 	
 		<header>
-			<img class="banner" src="images/bannerphp.php" alt="Baniere" width="50%" />
+			<img class="banner" src="images/bannerphp.php" alt="Baniere" />
 			<h1>Achat de vehicule</h1>
 		</header>
 		
 		
-<!-- 		<div id="dropdown"> -->
+		<div>
 			<?php 
 				define('GET_MAKE', 'make');
 				define('GET_MODEL', 'model');
@@ -31,9 +31,7 @@
 				else
 				require 'vues/accueil.php';
 			?>
-<!-- 		</div> -->
-		
-		
+		</div>
 		
 		<div class="photoCarousel">
 			<?php

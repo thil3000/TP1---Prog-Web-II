@@ -1,13 +1,13 @@
 <?php
 	$im = imagecreatefromjpeg('banner.jpg');
 	if($im !== false){
-//		list($w,$h) = getimagesize($im);
-//		$nw = $w/2;
-//		$nh=$h/2;
-//		$truecolor = imagecreatetruecolor($nw, $nh);
-//		imagecopyresampled($truecolor, $im, 0, 0, 0, 0, $nw, $nh, $w, $h);
+		$x = imagesx($im);
+		$y = imagesy($im)
+		
+		$truecolor = imagecreatetruecolor($w, $h);
+		imagecopyresampled($truecolor, $im, 0, 0, 0, 0, $w, $h, $w, $h);
 		header( "Content-type: image/jpeg" );
-		imagejpeg( $im );
-		imagedestroy( $im );
+		imagejpeg( $truecolor );
+		imagedestroy( $truecolor );
 	}
 ?>	

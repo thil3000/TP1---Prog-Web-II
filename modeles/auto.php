@@ -59,8 +59,7 @@
 					array("Make" => "Mercedes-Benz","Model" => "GLA-Class AWD","Price" => "23298","Year" => "2015","Color" => "Blanc","KM" => "50000","Image" => "modeles/carImg/MercedesGLA1.jpg"),
 					array("Make" => "Mazda","Model" => "3","Price" => "3000","Year" => "2008","Color" => "Rouge","KM" => "131000","Image" => "modeles/carImg/Mazda31.jpg"),
 					array("Make" => "Hyundai","Model" => "Sonata s","Price" => "50002","Year" => "2019","Color" => "Noir","KM" => "0","Image" => "modeles/carImg/HyundaiSS1.jpg"),
-					array("Make" => "Hyundai","Model" => "Sonata r","Price" => "53000","Year" => "1999","Color" => "Noir","KM" => "90000","Image" => "modeles/carImg/HyundaiSR1.jpg"),
-				);
+					array("Make" => "Hyundai","Model" => "Sonata r","Price" => "53000","Year" => "1999","Color" => "Noir","KM" => "90000","Image" => "modeles/carImg/HyundaiSR1.jpg"));
 	}
 		
 	function makeListOf($string,$make){
@@ -103,6 +102,14 @@
 		return getCarList()[$car_id];
 	}
 	
+	function getCarPrice($car_id) {
+		return getCarList()[$car_id][CAR_PRICE];
+	}
+	
+	function getCarImage($car_id) {
+			return getCarList()[$car_id][CAR_IMAGE];
+		}
+	
 	function getCarsFromMakeModel($make,$model){
 		$tab_result = array();
 		if (validateMakeAndModel($make,$model)){
@@ -116,6 +123,7 @@
 		}
 		return false;
 	}
+	
 		
 	function validateMake($makeToValidate){
 		$tab_maker = getMakerList();

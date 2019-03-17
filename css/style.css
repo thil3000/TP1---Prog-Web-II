@@ -1,6 +1,7 @@
 	header{
 		color: #702C8E;
 	}
+	
 	body {
 			width: 100%;
 			height: 100%;
@@ -9,7 +10,7 @@
 			text-shadow: 10px;
 			text-align: center;
 	}
-		:url("/background.png")
+	
 	.banner{
 			display: block;
 			margin: auto;
@@ -91,9 +92,10 @@
 			margin-right: auto;
 			width: 50%;
 		}
+		
 		#carrouselTitle{
-		font-family: fantasy;	
-		color: rgb(0, 8, 117);
+			font-family: fantasy;	
+			color: rgb(0, 8, 117);
 		}
 
 		.photoCarousel{
@@ -104,8 +106,8 @@
 			width:565px; 
 			height:265px; 
 			overflow:visible;
-			 position: sticky;
-			 }
+			position: sticky;
+		}
 
 		.fling-minislide img{
 			position:absolute;
@@ -113,7 +115,7 @@
 			opacity:0;
 			width: 100%;
 			height: auto;
-			}
+		}
 
 		@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}} 
 		.fling-minislide img:nth-child(1){animation-delay:0s;}

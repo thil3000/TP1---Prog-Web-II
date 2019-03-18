@@ -1,7 +1,7 @@
 <?php
 	
-	if(file_exists('banner.jpg')){
-		$im = imagecreatefromjpeg('banner.jpg');
+	if(file_exists("banner.jpg")){
+		$im = imagecreatefromjpeg("banner.jpg");
 		$x = imagesx($im);
 		$y = imagesy($im);
 		$newx = $x * 0.75;

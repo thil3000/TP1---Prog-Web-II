@@ -1,11 +1,11 @@
 <?php
-	define('CAR_MAKE', 'Make');
-	define('CAR_MODEL', 'Model');
-	define('CAR_PRICE', 'Price');
-	define('CAR_YEAR', 'Year');
-	define('CAR_COLOR', 'Color');
-	define('CAR_KM', 'KM');
-	define('CAR_IMAGE', 'Image');
+	define("CAR_MAKE", "Make");
+	define("CAR_MODEL", "Model");
+	define("CAR_PRICE", "Price");
+	define("CAR_YEAR", "Year");
+	define("CAR_COLOR", "Color");
+	define("CAR_KM", "KM");
+	define("CAR_IMAGE", "Image");
 	
 	function getCarList() {
 		return $tab_cars = array(
@@ -139,8 +139,8 @@
 		
 	function validateMake($makeToValidate){
 		$tab_maker = getMakerList();
-		if (strpos($makeToValidate, '%20'))
-		str_replace('%20', ' ', $makeToValidate);
+		if (strpos($makeToValidate, "%20"))
+		str_replace("%20", " ", $makeToValidate);
 
 		if(in_array($makeToValidate,$tab_maker,true)){
 			return true;

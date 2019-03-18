@@ -10,27 +10,31 @@
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>	
-	<img class="banner" src="../images/bannerphp.php" alt="Baniere" width="50%">
+		<header>
+			<img src="../images/bannerphp.php" alt="Baniere" />
+			<h1 id="title"><a href="../index.php">Achat de vehicule</a></h1>
+		</header>
+		
 		<?php
 			//Include
-			include '../modeles/auto.php';
+			include "../modeles/auto.php";
 
 			// Define
 			
-			define('TAXE', 0.14975);
+			define("TAXE", 0.14975);
 			
 			//Initialisation validation et assignation
 			
-			$carID = isset($_GET['carID']) ? $_GET['carID']: '';
-			$durationInMonths = isset($_POST['duration']) ? $_POST['duration']: 60;
-			$account = isset($_POST['account']) ? $_POST['account']: 0;
+			$carID = isset($_GET["carID"]) ? $_GET["carID"]: "";
+			$durationInMonths = isset($_POST["duration"]) ? $_POST["duration"]: 60;
+			$account = isset($_POST["account"]) ? $_POST["account"]: 0;
 			
-			$account = str_replace(',','.',$account);
+			$account = str_replace(",",".",$account);
 			$account = filter_var($account,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
 			
 			$carPrice = null;
 			
-			if($carID != ''){
+			if($carID != ""){
 				$carPrice = getCarPrice($carID);
 			}
 			else{
@@ -55,6 +59,7 @@
 			}
 			
 			function calculateMensualite($totalCost,$durationInMonths,$interestRate){
+				$interestRate = ($interestRate/100)/12;
 				$pow = pow((1+$interestRate),$durationInMonths);
 				$carFinalValuePerMonths = $totalCost * (($interestRate * $pow) / ($pow - 1));
 				return $carFinalValuePerMonths;
@@ -72,31 +77,31 @@
 			function getInterestRate($carPrice,$durationInMonths){
 				$interestRate;
 				switch ($durationInMonths) {
-					case '12':
+					case "12":
 						if($carPrice <= 10000)
 							$interestRate = 6.95;
 						else
 							$interestRate = 7.25;
 						break;
-					case '24':
+					case "24":
 						if($carPrice <= 10000)
 							$interestRate = 6.95;
 						else
 							$interestRate = 7.25;
 						break;
-					case '36':
+					case "36":
 						if($carPrice <= 10000)
 							$interestRate = 6.25;
 						else
 							$interestRate = 6.30;
 						break;
-					case '48':
+					case "48":
 						if($carPrice <= 10000)
 							$interestRate = 6.10;
 						else
 							$interestRate = 6.30;
 						break;
-					case '60':
+					case "60":
 						if($carPrice <= 10000)
 							$interestRate = 6.0;
 						else
@@ -109,14 +114,13 @@
 			$totalCost = calculateTotalCost($carPrice, $account);
 			$taxe = calculateTaxe($totalCost);
 			$interestRate = getInterestRate($carPrice,$durationInMonths);
-			$interestRate = $interestRate / 100;
-			$mensualite = calculateMensualite($totalCost,$durationInMonths,($interestRate/12));
+			$mensualite = calculateMensualite($totalCost,$durationInMonths,($interestRate));
 			$totalInterest = calculateTotalInterest($mensualite,$durationInMonths,$totalCost);
 			$montantAFinancer = montantAFinancer($totalCost,$totalInterest);
 			
 			$tab_total = ["Prix" => $carPrice,"Acompte" => $account,"Cout total" => $totalCost, "Taxe" => $taxe,"Total d'interêt" => $totalInterest,"Montant à financer" => $montantAFinancer,"Mensualité" => $mensualite];
 			
-			include '../vues/financement.php';
+			include "../vues/financement.php";
 			
 		?>
 	</body>

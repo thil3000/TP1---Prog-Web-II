@@ -10,34 +10,30 @@
 	</head>
 	<body>
 		<header>
-			<img src="images/bannerphp.php" alt="Baniere" />
 			<h1 id="title"><a href="index.php">Achat de vehicule</a></h1>
-			<div id="dropdown">
-				<?php 
-					define("GET_MAKE", "make");
-					define("GET_MODEL", "model");
-					require "modeles/auto.php";		
-					
-					$make = isset($_GET[GET_MAKE]) ? $_GET[GET_MAKE] : "";
-					$model = isset($_GET[GET_MODEL]) ? $_GET[GET_MODEL] : "";
-					if(validateMakeAndModel($make,$model)){
-						header("Location:controller/selectionController.php?make=$make&model=$model");
-					}
-					else
-					require "vues/accueil.php";
-				?>
-			</div>
+			<?php 
+				define("GET_MAKE", "make");
+				define("GET_MODEL", "model");
+				require "modeles/auto.php";		
+				
+				$make = isset($_GET[GET_MAKE]) ? $_GET[GET_MAKE] : "";
+				$model = isset($_GET[GET_MODEL]) ? $_GET[GET_MODEL] : "";
+				if(validate_make_and_model($make,$model)){
+					header("Location:controller/selection_controller.php?make=$make&model=$model");
+				}
+				else
+				require "vues/accueil.php";
+			?>
 		</header>
 		
-		<div class="photoCarousel">
-			<?php
-				echo "<h2 id=\"carrouselTitle\">Voitures du jour</h2>";
-				include "vues/photocaroussel.php";
-			?>
-		</div>
+		<?php
+			include "vues/photo_caroussel.php";
+		?>
 		
 		<footer>
-			
+			<?php
+				//include "vues/footer.php";
+			?>
 		</footer>
 	</body>
 </html>

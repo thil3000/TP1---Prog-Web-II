@@ -7,7 +7,7 @@
 	define("CAR_KM", "KM");
 	define("CAR_IMAGE", "Image");
 	
-	function getCarList() {
+	function get_car_list() {
 		return $tab_cars = array(
 					array("Make" => "Honda","Model" => "Civic Dx","Price" => "450","Year" => "1994","Color" => "Blanc","KM" => "500000","Image" => "CivicDX1.jpg"),
 					array("Make" => "Honda","Model" => "Civic Dx","Price" => "10000","Year" => "2006","Color" => "Bleu","KM" => "40000","Image" => "CivicDX2.jpg"),
@@ -20,7 +20,7 @@
 					array("Make" => "Acura","Model" => "RSX TYPE-S","Price" => "7500","Year" => "2007","Color" => "Bleu","KM" => "16000","Image" => "AcuraRSXS2.jpg"),
 					array("Make" => "Acura","Model" => "Tl TYPE-S","Price" => "8700","Year" => "2008","Color" => "Bleu","KM" => "166000","Image" => "AcuraTLS1.jpg"),
 					array("Make" => "Mini","Model" => "Cooper","Price" => "21850","Year" => "2018","Color" => "Brun","KM" => "0","Image" => "MiniC1.jpg"),
-					array("Make" => "Mini","Model" => "Cooper r","Price" => "218050","Year" => "1998","Color" => "Brun","KM" => "-00003","Image" => "MiniCR1.jpg"),
+					array("Make" => "Mini","Model" => "Cooper R","Price" => "218050","Year" => "1998","Color" => "Brun","KM" => "-00003","Image" => "MiniCR1.jpg"),
 					array("Make" => "Mini","Model" => "Cooper S","Price" => "21850","Year" => "2008","Color" => "Brun","KM" => "150000","Image" => "MiniCS1.jpg"),
 					array("Make" => "Mini","Model" => "Cooper S","Price" => "18850","Year" => "2007","Color" => "Noir","KM" => "16000","Image" => "MiniCS2.jpg"),
 					array("Make" => "Jeep","Model" => "Wrangler JL 2P","Price" => "415000","Year" => "2018","Color" => "Noir","KM" => "0","Image" => "JeepW1.jpg"),
@@ -46,7 +46,7 @@
 					array("Make" => "Mazda","Model" => "RX7","Price" => "20900","Year" => "1994","Color" => "Rouge","KM" => "50000","Image" => "MazdaRX71.jpg"),
 					array("Make" => "Mazda","Model" => "RX8","Price" => "20900","Year" => "2008","Color" => "Rouge","KM" => "5000","Image" => "MazdaRX81.jpg"),
 					array("Make" => "Toyota","Model" => "Supra","Price" => "29000","Year" => "1996","Color" => "Orange","KM" => "24000","Image" => "ToyotaS1.jpg"),
-					array("Make" => "Mercedes-Benz","Model" => "Class-c 2.5","Price" => "7500","Year" => "2008","Color" => "Noir","KM" => "177770","Image" => "MercedesClassC1.jpg"),
+					array("Make" => "Mercedes-Benz","Model" => "Class-C 2.5","Price" => "7500","Year" => "2008","Color" => "Noir","KM" => "177770","Image" => "MercedesClassC1.jpg"),
 					array("Make" => "Mercedes-Benz","Model" => "C63 AMG","Price" => "1000000","Year" => "2009","Color" => "Vert","KM" => "0","Image" => "MercedesC631.jpg"),
 					array("Make" => "Subaru","Model" => "WRX STI","Price" => "17500","Year" => "2005","Color" => "Bleu","KM" => "4000","Image" => "SubaruWRXSTI1.jpg"),
 					array("Make" => "Subaru","Model" => "WRX","Price" => "7500","Year" => "2005","Color" => "Bleu","KM" => "100000","Image" => "SubaruWRX1.jpg"),
@@ -58,12 +58,12 @@
 					array("Make" => "Ford","Model" => "Escape","Price" => "15000","Year" => "2015","Color" => "Gris","KM" => "70000","Image" => "FordEscape1.jpg"),
 					array("Make" => "Mercedes-Benz","Model" => "GLA-Class AWD","Price" => "23298","Year" => "2015","Color" => "Blanc","KM" => "50000","Image" => "MercedesGLA1.jpg"),
 					array("Make" => "Mazda","Model" => "3","Price" => "3000","Year" => "2008","Color" => "Rouge","KM" => "131000","Image" => "Mazda31.jpg"),
-					array("Make" => "Hyundai","Model" => "Sonata s","Price" => "50002","Year" => "2019","Color" => "Noir","KM" => "0","Image" => "HyundaiSS1.jpg"),
-					array("Make" => "Hyundai","Model" => "Sonata r","Price" => "53000","Year" => "1999","Color" => "Noir","KM" => "90000","Image" => "HyundaiSR1.jpg"));
+					array("Make" => "Hyundai","Model" => "Sonata S","Price" => "50002","Year" => "2019","Color" => "Noir","KM" => "0","Image" => "HyundaiSS1.jpg"),
+					array("Make" => "Hyundai","Model" => "Sonata R","Price" => "53000","Year" => "1999","Color" => "Noir","KM" => "90000","Image" => "HyundaiSR1.jpg"));
 	}
 		
-	function makeListOf($string,$make){
-		$tab_cars = getCarList();
+	function make_list_of($string,$make){
+		$tab_cars = get_car_list();
 		$tab_result = array();
 		foreach ($tab_cars as $value){
 			if($value[CAR_MAKE] == $make || is_null($make))
@@ -72,51 +72,51 @@
 		return $tab_result;
 	}
 	
-	function getMakerList(){
-		$tab_list = makeListOf(CAR_MAKE,NULL);
+	function get_maker_list(){
+		$tab_list = make_list_of(CAR_MAKE,NULL);
 		asort($tab_list);
 		return array_unique($tab_list);
 	}
 
-	function getYearList(){
-		$tab_list = makeListOf(CAR_YEAR,NULL);
+	function get_year_list(){
+		$tab_list = make_list_of(CAR_YEAR,NULL);
 		asort($tab_list);
 		return array_unique($tab_list);
 	}
 
-	function getColorList(){
-		$tab_list = makeListOf(CAR_COLOR,NULL);
+	function get_color_list(){
+		$tab_list = make_list_of(CAR_COLOR,NULL);
 		asort($tab_list);
 		return array_unique($tab_list);
 	}
 	
-	function getModelList($make){
-		if(validateMake($make)){
-			$tab_list = makeListOf(CAR_MODEL,$make);
+	function get_model_list($make){
+		if(validate_make($make)){
+			$tab_list = make_list_of(CAR_MODEL,$make);
 			asort($tab_list);
 			return array_unique($tab_list);
 		};
 	}
 	
-	function getCarFromId($carID) {
-		if(validateCarID($carID))
-			return getCarList()[$carID];
+	function get_car_from_id($car_id) {
+		if(validate_car_id($car_id))
+			return get_car_list()[$car_id];
 	}
 	
-	function getCarPrice($carID) {
-		if(validateCarID($carID))
-			return getCarList()[$carID][CAR_PRICE];
+	function get_car_price($car_id) {
+		if(validate_car_id($car_id))
+			return get_car_list()[$car_id][CAR_PRICE];
 	}
 	
-	function getCarImage($carID) {
-		if(validateCarID($carID))
-			return getCarList()[$carID][CAR_IMAGE];
+	function get_car_image($car_id) {
+		if(validate_car_id($car_id))
+			return get_car_list()[$car_id][CAR_IMAGE];
 	}
 	
-	function getCarsFromMakeModel($make,$model){
+	function get_cars_from_make_model($make,$model){
 		$tab_result = array();
-		if (validateMakeAndModel($make,$model)){
-			$tab_cars = getCarList();
+		if (validate_make_and_model($make,$model)){
+			$tab_cars = get_car_list();
 			foreach($tab_cars as $key => $car){
 				if($car[CAR_MAKE] == $make && $car[CAR_MODEL] == $model){
 					array_push($tab_result, $key);
@@ -127,9 +127,9 @@
 		return false;
 	}
 	
-	function validateCarID($carID){
-		if (filter_var($carID, FILTER_VALIDATE_INT) === 0 || !filter_var($carID, FILTER_VALIDATE_INT) === false) {
-			if ($carID >= 0 && $carID < count(getCarList()))
+	function validate_car_id($car_id){
+		if (filter_var($car_id, FILTER_VALIDATE_INT) === 0 || !filter_var($car_id, FILTER_VALIDATE_INT) === false) {
+			if ($car_id >= 0 && $car_id < count(get_car_list()))
 				return true;
 			else 
 				return false;
@@ -137,19 +137,19 @@
 			return false;
 	}
 		
-	function validateMake($makeToValidate){
-		$tab_maker = getMakerList();
-		if (strpos($makeToValidate, "%20"))
-		str_replace("%20", " ", $makeToValidate);
+	function validate_make($make_to_validate){
+		$tab_maker = get_maker_list();
+		if (strpos($make_to_validate, "%20"))
+		str_replace("%20", " ", $make_to_validate);
 
-		if(in_array($makeToValidate,$tab_maker,true)){
+		if(in_array($make_to_validate,$tab_maker,true)){
 			return true;
 		}
 		return false;
 	}
 	
-	function validateMakeAndModel($make,$model){
-		$tab_cars = getCarList();
+	function validate_make_and_model($make,$model){
+		$tab_cars = get_car_list();
 		foreach($tab_cars as $value){
 			if($value[CAR_MAKE] == $make && $value[CAR_MODEL] == $model){
 				return true;

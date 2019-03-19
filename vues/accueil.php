@@ -3,10 +3,10 @@
 	 Date:Fevrier 2019
 -->
 <?php
-	function generateMakeList($chosenMake){
-		$tab_maker = getMakerList();
+	function generate_make_list($chosen_make){
+		$tab_maker = get_maker_list();
 		echo "<div class=\"dropdown\">\n";
-		echo "<button class=\"dropdownbtn\">$chosenMake</button>\n";
+		echo "<button class=\"dropdownbtn\">$chosen_make</button>\n";
 		echo "<div class=\"dropdown-inside\">\n";		
 		
 		foreach ($tab_maker as $maker) {
@@ -17,10 +17,10 @@
 		echo "</div>\n";
 	}
 	
-	function generateModelList($make){
-		$tab_model = getModelList($make);
+	function generate_model_list($make){
+		$tab_model = get_model_list($make);
 		echo "<div class=\"dropdown\">\n";
-		echo "<button class=\"dropdownbtn\">Model</button>\n";
+		echo "<button class=\"dropdownbtn\">Modèles</button>\n";
 		echo "<div class=\"dropdown-inside\">\n";	
 		
 		foreach ($tab_model as $model) {
@@ -31,11 +31,14 @@
 		echo "</div>\n";
 	}
 	
-	if(validateMake($make)){
-		generateMakeList($make);
-		generateModelList($make);
+	echo "<div id=\"dropdowndiv\">\n";
+	if(validate_make($make)){
+		generate_make_list($make);
+		generate_model_list($make);
 	}
 	else{
-		generateMakeList(CAR_MAKE);
+		generate_make_list("Marques");
 	}	
+	
+	echo "</div>\n";
 ?>

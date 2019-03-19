@@ -122,10 +122,5 @@
 			include "../vues/financement.php";
 			
 		?>
-		<footer>
-			<?php
-				//include "../vues/footer.php";
-			?>
-		</footer>
 	</body>
 </html>

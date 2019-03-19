@@ -26,15 +26,8 @@
 			$tab_search_result = array();
 			$make = isset($_GET[GET_MAKE])?$_GET[GET_MAKE]:"";
 			$model = isset($_GET[GET_MODEL])?$_GET[GET_MODEL]:"";
-			if (validate_make_and_model($make,$model)){
-				$tab_search_result = get_car_search_result($make,$model);
-				show_all_car($tab_search_result);
-			}
+			if (validate_make_and_model($make,$model))
+				show_all_car(get_car_search_result($make,$model));
 		?>
-		<footer>
-			<?php
-				//include "../vues/footer.php";
-			?>
-		</footer>
 	</body>
 </html>

@@ -27,13 +27,7 @@
 		</header>
 		
 		<?php
-			include "vues/photo_caroussel.php";
+			include "vues/photo_carousel.php";
 		?>
-		
-		<footer>
-			<?php
-				//include "vues/footer.php";
-			?>
-		</footer>
 	</body>
 </html>

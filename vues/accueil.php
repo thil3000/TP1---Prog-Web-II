@@ -3,7 +3,7 @@
 	 Date:Fevrier 2019
 -->
 <?php
-	function generate_make_list($chosen_make){
+	function generate_make_dropdown($chosen_make){
 		$tab_maker = get_maker_list();
 		echo "<div class=\"dropdown\">\n";
 		echo "<button class=\"dropdownbtn\">$chosen_make</button>\n";
@@ -17,7 +17,7 @@
 		echo "</div>\n";
 	}
 	
-	function generate_model_list($make){
+	function generate_model_dropdown($make){
 		$tab_model = get_model_list($make);
 		echo "<div class=\"dropdown\">\n";
 		echo "<button class=\"dropdownbtn\">Modèles</button>\n";
@@ -33,12 +33,11 @@
 	
 	echo "<div id=\"dropdowndiv\">\n";
 	if(validate_make($make)){
-		generate_make_list($make);
-		generate_model_list($make);
+		generate_make_dropdown($make);
+		generate_model_dropdown($make);
 	}
 	else{
-		generate_make_list("Marques");
+		generate_make_dropdown("Marques");
 	}	
-	
 	echo "</div>\n";
 ?>
